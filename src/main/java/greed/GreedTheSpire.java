@@ -1,12 +1,14 @@
 package greed;
 
 import basemod.BaseMod;
+import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.PostCreateStartingRelicsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import greed.card.attack.MineAttackCard;
 import greed.event.MyGoodEvent;
 
 import java.util.ArrayList;
@@ -14,7 +16,8 @@ import java.util.ArrayList;
 @SpireInitializer
 public class GreedTheSpire
         implements PostInitializeSubscriber
-        , PostCreateStartingRelicsSubscriber {
+        , PostCreateStartingRelicsSubscriber
+        , EditCardsSubscriber {
 
     public GreedTheSpire() {
         BaseMod.subscribe(this);
@@ -36,5 +39,10 @@ public class GreedTheSpire
             relics.remove("Burning Blood");
             UnlockTracker.markRelicAsSeen("Black Blood");
         }
+    }
+
+    @Override
+    public void receiveEditCards() {
+        BaseMod.addCard(new MineAttackCard());
     }
 }
