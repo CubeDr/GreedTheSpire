@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import greed.card.attack.MineAttackCard;
+import greed.card.skill.MoneyGrubberCard;
 import greed.event.MyGoodEvent;
 
 import java.util.ArrayList;
@@ -44,5 +45,6 @@ public class GreedTheSpire
     @Override
     public void receiveEditCards() {
         BaseMod.addCard(new MineAttackCard());
+        BaseMod.addCard(new MoneyGrubberCard());
     }
 }
