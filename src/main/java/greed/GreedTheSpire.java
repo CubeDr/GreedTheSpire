@@ -5,7 +5,9 @@ import basemod.interfaces.PostCreateStartingRelicsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import greed.event.MyGoodEvent;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,7 @@ public class GreedTheSpire
 
     @Override
     public void receivePostInitialize() {
-
+        BaseMod.addEvent(MyGoodEvent.ID, MyGoodEvent.class, TheCity.ID);
     }
 
     @Override
